@@ -1,21 +1,49 @@
 #Muhamad Agung Santoso
 
-#program sederhana
+#memperbaiki program sederhana
 
-print ("\nKALKULATOR CELCIUS\n")
+print('\n Kalkulator Suhu \n')
 
-#Celcius
-celcius = float (input ("Celcius ="))
-print ("Celcius =", celcius,"derajat")
+print('''1. Celcius ke Reamur
+2. Celcius ke Fahrenheit
+3. Celcius ke Kelvin''')
 
-#Reamur
-reamur = (4/5) * celcius
-print ("Reamur =", reamur,"derajat")
+def kembali():
+    print('apakah anda ingin lanjut? y|t')
+    keluar = True
+    milih = str(input('apakah anda ingin lanjut?: '))
+    while keluar:
+        if (milih == 'y'):
+            return pilihan()
+        elif (milih == 't'):
+            print('Terima Kasih')
+            keluar = False
+        else:
+            print('Masukkan pilihan yang sesuai')
+            return kembali()
 
-#Fahrenheit
-fahrenheit = (9/5) * celcius + 32
-print ("Fahrenheit =", fahrenheit, "derajat")
+def pilihan():
+    pilih = int(input('Masukkan pilihan anda: '))
+    #Reamur
+    if (pilih == 1):
+        celcius = float(input('Masukkan celcius: '))
+        reamur = (4/5) * celcius
+        print(celcius, 'celcius =', reamur, 'reamur')
+        return kembali()
+    #Fahrenheit
+    elif (pilih == 2):
+        celcius = float(input('Masukkan celcius: '))
+        fahrenheit = (9/5) * celcius + 32
+        print(celcius, 'celcius =', fahrenheit, 'fahrenheit')
+        return kembali()
+    #Kelvin
+    elif (pilih == 3):
+        celcius = float(input('Masukkan celcius: '))
+        kelvin = celcius + 273
+        print(celcius, 'celcius =', kelvin, 'kelvin')
+        return kembali()
+    else:
+        print('Masukkan pilihan yang benar!')
+        return pilihan()
 
-#Kelvin
-kelvin = celcius + 273
-print ("Kelvin =", kelvin, "derajat")
+pilihan()
